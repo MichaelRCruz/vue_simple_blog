@@ -9,3 +9,7 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+Vue.filter('uppercase', function (value) {
+  return value.toUpperCase()
+})

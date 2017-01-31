@@ -2,6 +2,33 @@
   <div>
     <div class="blog container">
         <h2>{{ title }}</h2>
+        <!-- Trigger the modal add post with a button -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewPost">New Post</button>
+        <!-- Add Post -->
+        <div id="addNewPost" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Add Post Content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add New Post</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="title" class="form-control" id="title" v-model="newPost.title">
+                  </div>
+                  <div class="form-group">
+                    <label for="body">Content:</label>
+                    <textarea class="form-control" rows="5" id="body" v-model="newPost.body"></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="newPost()">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <hr>
         <div class="row">
          <div class="col-sm-6 col-md-4" v-for="post in posts">
@@ -22,33 +49,7 @@
          </div>
        </div>
     </div>
-    <!-- Trigger the modal add post with a button -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewPost">New Post</button>
-    <!-- Add Post -->
-    <div id="addNewPost" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Add Post Content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Add New Post</h4>
-          </div>
-          <div class="modal-body">
-              <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="title" class="form-control" id="title" v-model="newPost.title">
-              </div>
-              <div class="form-group">
-                <label for="body">Content:</label>
-                <textarea class="form-control" rows="5" id="body" v-model="newPost.body"></textarea>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="newPost()">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 

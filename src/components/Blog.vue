@@ -2,7 +2,9 @@
   <div class="blog">
     <h2>{{title}}</h2>
       <ul>
-        <li v-for="post in posts">{{post.title}}</li>
+        <li v-for="post in posts">
+          {{ post.title }}
+        </li>
       </ul>
   </div>
 </template>

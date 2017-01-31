@@ -11,11 +11,11 @@
                <h3>{{post.title | uppercase}}</h3>
                <p>
                  {{post.body}}
-                 <a href="#" class="btn btn-danger" role="button" v-on:click="deletePost(post)">Delete</a></p>
+                 <!-- <a href="#" class="btn btn-danger" role="button" v-on:click="deletePost(post)">Delete</a></p> -->
                </p>
                <p>
                  <a href="#" class="btn btn-primary" role="button">Read More</a>
-                 <a href="#" class="btn btn-danger" role="button">Delete</a>
+                 <a href="#" class="btn btn-danger" role="button" v-on:click="deletePost(post)">Delete</a></p>
                </p>
              </div>
            </div>
@@ -44,7 +44,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="AddPost()">Add</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="newPost()">Add</button>
           </div>
         </div>
       </div>
@@ -94,7 +94,13 @@
         })
         this.newPost = {}
       }
-    }
+    },
+    created: function () {
+    this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+      // console.log(response.data);
+      this.posts = response.data
+    })
+  }
 }
 </script>
 

@@ -1,11 +1,26 @@
 <template>
-  <div class="blog">
-    <h2>{{title}}</h2>
-      <ul>
-        <li v-for="post in posts">
-          {{ post.title }}
-        </li>
-      </ul>
+  <div class="blog container">
+      <h2>{{title}}</h2>
+      <hr>
+      <div class="row">
+       <div class="col-sm-6 col-md-4" v-for="post in posts">
+         <div class="thumbnail">
+           <img src="http://placehold.it/350x150">
+           <div class="caption">
+             <h3>
+               {{post.title}}
+             </h3>
+             <p>
+               {{post.body}}
+             </p>
+             <p>
+               <a href="#" class="btn btn-primary" role="button">Read More</a>
+               <a href="#" class="btn btn-danger" role="button">Delete</a>
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
   </div>
 </template>
 
